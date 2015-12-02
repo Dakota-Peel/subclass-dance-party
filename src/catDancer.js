@@ -5,6 +5,7 @@ var catDancer = function(top, left, timeBetweenSteps) {
   // so we must keep a copy of the old version of this function
   this.timeBetweenSteps = timeBetweenSteps;
   this.$node.attr('src', 'images/cat.gif');
+  this.$node.addClass('cat');
 
 
 };

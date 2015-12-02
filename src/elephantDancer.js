@@ -14,6 +14,17 @@ var elephantDancer = function(top, left, timeBetweenSteps) {
   elephantDancer.prototype.constructor = elephantDancer;
 
   elephantDancer.prototype.step = function() {
+    var that = this;
+      that.$node.click(function(e){
+      that.$node.animate({'top': $("body").height() * Math.random(), 'left': $("body").width() * Math.random()},'slow');
+      for(var i = 0; i < window.dancers.length; i++){
+      if(that.positionTop() + 100 >= window.dancers[i]){
+        that.$node.animate({'top': $("body").height() * Math.random(), 'left': $("body").width() * Math.random()},'slow');
+      }
+    }
+
+
+    });
 
 
     // makeDancer.prototype.step.call(this);

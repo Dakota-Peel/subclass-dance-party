@@ -5,6 +5,8 @@ var pandaDancer = function(top, left, timeBetweenSteps) {
   // so we must keep a copy of the old version of this function
   this.timeBetweenSteps = timeBetweenSteps;
   this.$node.attr('src', 'images/panda.gif');
+  this.$node.attr('id', 'panda');
+  this.$node.addClass('panda');
 
  
 
@@ -12,17 +14,21 @@ var pandaDancer = function(top, left, timeBetweenSteps) {
 
   pandaDancer.prototype = Object.create(makeDancer.prototype);
   pandaDancer.prototype.constructor = pandaDancer;
-
   pandaDancer.prototype.step = function() {
+        var that = this;
+      that.$node.click(function(e){
+      that.$node.animate({'top': $("body").height() * Math.random(), 'left': $("body").width() * Math.random()},'slow');
+    });
 
-    makeDancer.prototype.step.call(this);
+    //makeDancer.prototype.step.call(this);
 
     // toggle() is a jQuery method to show/hide the <span> tag.
     // See http://api.jquery.com/category/effects/ for this and
     // other effects you can use on a jQuery-wrapped html tag.
    
-    this.$node.animate({ "top": "-=50px" }, "slow" );
-    this.$node.animate({ "top": "+=50px" }, "slow" );
+    // this.$node.animate({ "top": "-=50px" }, "slow" );
+    // this.$node.animate({ "top": "+=50px" }, "slow" );
+
   
   };
 
